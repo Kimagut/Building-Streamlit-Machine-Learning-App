@@ -36,13 +36,13 @@ if st.session_state['authentication_status']:
     # Load models and encoder
     @st.cache_resource
     def load_logistic_reg_pipeline():
-        pipeline = joblib.load('Trained models/Logistic_reg.joblib')
+        pipeline = joblib.load('Models/Logistic_reg.joblib')
         return pipeline
     
     
     @st.cache_resource
     def load_adaboost_pipeline():
-        pipeline = joblib.load('Trained models/AdaBoost.joblib')
+        pipeline = joblib.load('Models/AdaBoost.joblib')
         return pipeline
     
     
@@ -58,7 +58,7 @@ if st.session_state['authentication_status']:
         else:
             pipeline = load_adaboost_pipeline()
     
-        encoder = joblib.load('Trained models/encoder.joblib')
+        encoder = joblib.load('Models/encoder.joblib')
     
         return pipeline, encoder
     

@@ -250,6 +250,56 @@ if st.session_state['authentication_status']:
         avg_tenure = filtered_data['tenure'].mean()
 
 
+        # Define CSS for card visuals with background color and drop shadow
+        st.write("""
+            <style>
+                .kpi-card {
+                    background-color: #ebf7ff; /* Fading sky blue */
+                    padding: 20px;
+                    border-radius: 5px;
+                    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow effect */
+                    margin-bottom: 20px;
+                    width: 300px; /* Set a fixed width for consistency */
+                    display: inline-block;
+                    margin-right: 20px;
+                }
+                .kpi-title {
+                    font-size: 24px;
+                    font-weight: bold;
+                    margin-bottom: 10px;
+                }
+                .kpi-value {
+                    font-size: 20px;
+                    font-weight: bold;
+                }
+            </style>
+        """, unsafe_allow_html=True)
+ 
+ 
+    # 5.2 Display KPIs as card visuals with background color and drop shadow
+        col1, col2, col3 = st.columns(3)
+ 
+        with col1:
+            st.markdown(f"<div class='kpi-card'><div class='kpi-title'>Total Customers 👫</div><div class='kpi-value'>{total_customers}</div></div>", unsafe_allow_html=True)
+ 
+        with col2:
+            st.markdown(f"<div class='kpi-card'><div class='kpi-title'>Churned Customers 🏃‍♂️</div><div class='kpi-value'>{churned_customers}</div></div>", unsafe_allow_html=True)
+ 
+        with col3:
+            st.markdown(f"<div class='kpi-card'><div class='kpi-title'>Churn Rate 📈</div><div class='kpi-value'>{churn_rate:.2f}%</div></div>", unsafe_allow_html=True)
+ 
+        col4, col5, col6 = st.columns(3)
+ 
+        with col4:
+            st.markdown(f"<div class='kpi-card'><div class='kpi-title'>Avg Monthly Charge</div><div class='kpi-value'>${avg_monthly_charge:.2f}</div></div>", unsafe_allow_html=True)
+ 
+        with col5:
+            st.markdown(f"<div class='kpi-card'><div class='kpi-title'>Avg Total Charge</div><div class='kpi-value'>${avg_total_charge:.2f}</div></div>", unsafe_allow_html=True)
+ 
+        with col6:
+            st.markdown(f"<div class='kpi-card'><div class='kpi-title'>Avg Tenure (months)</div><div class='kpi-value'>{avg_tenure:.2f}</div></div>", unsafe_allow_html=True)
+
+
 
     # 5.3 Visualization section
         st.header("Churn")

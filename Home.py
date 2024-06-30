@@ -151,8 +151,8 @@ elif st.session_state['authentication_status'] is None:
     st.info('Login to get access to the app')
     st.code("""
     Test Account
-    Username: curium
-    Password: 123456
+    Username: Kimagut
+    Password: Kimz123
     """)
 
 #st.write(st.session_state)
